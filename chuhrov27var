@@ -1,0 +1,355 @@
+//part1task1
+/*using System;
+using System.Diagnostics.Metrics;
+
+class calculator
+{
+    static void Main()
+    {
+        double num1, num2, num3, num4;
+        Console.WriteLine("Enter the First number:");
+        num1 = Convert.ToDouble(Console.ReadLine());
+        Console.WriteLine("Enter the Second number:");
+        num2 = Convert.ToDouble(Console.ReadLine());
+        Console.WriteLine("Enter the third number:");
+        num3 = Convert.ToDouble(Console.ReadLine());
+        Console.WriteLine("Enter the four number:");
+        num4 = Convert.ToDouble(Console.ReadLine());
+        double avarage = (num1 + num2 + num3 + num4) / 4;
+        int avarageInt = (int)avarage;
+        Console.WriteLine($"The average of " + num1 + " , " + num2 + " , " + num3 + " , " + num4 + " " + "is: " + avarageInt);
+    }
+}*/
+//part1task2
+/*using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Введите два числа:");
+        Console.Write(">");
+        double num1 = Convert.ToDouble(Console.ReadLine());
+        Console.Write(">");
+        double num2 = Convert.ToDouble(Console.ReadLine());
+
+        Console.WriteLine($"Вы ввели числа: {num1} и {num2}");
+
+        Console.WriteLine("Какое действие выполнить?");
+        Console.WriteLine("1. Сложение");
+        Console.WriteLine("2. Вычитание");
+        Console.WriteLine("3. Умножение");
+        Console.WriteLine("4. Деление");
+        Console.WriteLine("5. Нахождение остатка");
+
+        Console.Write(">");
+        int choice = Convert.ToInt32(Console.ReadLine());
+
+        double result = 0;
+
+        switch (choice)
+        {
+            case 1:
+                result = num1 + num2;
+                Console.WriteLine($"Результат: {num1} + {num2} = {result}");
+                break;
+            case 2:
+                result = num1 - num2;
+                Console.WriteLine($"Результат: {num1} - {num2} = {result}");
+                break;
+            case 3:
+                result = num1 * num2;
+                Console.WriteLine($"Результат: {num1} * {num2} = {result}");
+                break;
+            case 4:
+                if (num2 != 0)
+                {
+                    result = num1 / num2;
+                    Console.WriteLine($"Результат: {num1} / {num2} = {result}");
+                }
+                else
+                {
+                    Console.WriteLine("Делить на ноль нельзя!");
+                }
+                break;
+            case 5:
+                result = num1 % num2;
+                Console.WriteLine($"Результат: {num1} % {num2} = {result}");
+                break;
+            default:
+                Console.WriteLine("Ошибка: Неверный выбор действия.");
+                break;
+        }
+    }
+}*/
+//part1task3
+/*using System;
+
+class Temperature
+{
+    static void Main()
+    {
+        Console.WriteLine("Выберите шкалу вводимой температуры:");
+        Console.WriteLine("1. Цельсий");
+        Console.WriteLine("2. Кельвин");
+        Console.WriteLine("3. Фаренгейт");
+        Console.Write(">");
+
+        int inputScale = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("Введите показатель температуры (градусы): \n");
+        Console.Write(">");
+        double temperature = Convert.ToDouble(Console.ReadLine());
+
+        Console.WriteLine("Выберите тип шкалы для конвертации:");
+        Console.WriteLine("1. Цельсий");
+        Console.WriteLine("2. Кельвин");
+        Console.WriteLine("3. Фаренгейт");
+        Console.Write(">");
+
+        int outputScale = Convert.ToInt32(Console.ReadLine());
+
+        double convertedTemperature = 0;
+
+        switch (inputScale)
+        {
+            case 1:
+                if (outputScale == 2)
+                {
+                    convertedTemperature = temperature + 273.15;
+                    Console.WriteLine($"Вы выбрали: Цельсий -> Кельвин");
+                }
+                else if (outputScale == 3)
+                {
+                    convertedTemperature = (temperature * 9 / 5) + 32;
+                    Console.WriteLine($"Вы выбрали: Цельсий -> Фаренгейт");
+                }
+                break;
+
+            case 2:
+                if (outputScale == 1)
+                {
+                    convertedTemperature = temperature - 273.15;
+                    Console.WriteLine($"Вы выбрали: Кельвин -> Цельсий");
+                }
+                else if (outputScale == 3)
+                {
+                    convertedTemperature = (temperature - 273.15) * 9 / 5 + 32;
+                    Console.WriteLine($"Вы выбрали: Кельвин -> Фаренгейт");
+                }
+                break;
+
+            case 3:
+                if (outputScale == 1)
+                {
+                    convertedTemperature = (temperature - 32) * 5 / 9;
+                    Console.WriteLine($"Вы выбрали: Фаренгейт -> Цельсий");
+                }
+                else if (outputScale == 2)
+                {
+                    convertedTemperature = (temperature - 32) * 5 / 9 + 273.15;
+                    Console.WriteLine($"Вы выбрали: Фаренгейт -> Кельвин");
+                }
+                break;
+
+            default:
+                Console.WriteLine("Ошибка: Неверный выбор шкалы.");
+                return;
+        }
+
+        Console.WriteLine($"Результат конвертации: {convertedTemperature}");
+    }
+}*/
+/*part1task4
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Введите путь до файла: \n");
+        Console.Write("> ");
+        string filePath = Console.ReadLine();
+
+        char[] separators = new char[] { '/', '\\' };
+        string[] pathParts = filePath.Split(separators);
+
+        string fileName = pathParts[pathParts.Length - 1];
+
+        Console.WriteLine($"Имя файла: {fileName}");
+    }
+}*/
+//part1task5
+/*using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Введите предложение: \n");
+        Console.Write(">");
+        string input = Console.ReadLine();
+
+        string[] words = input.Split(new char[] { ' ', '.', ',', '!', '?' }, StringSplitOptions.RemoveEmptyEntries);
+
+        string longestWord = "";
+
+        foreach (string word in words)
+        {
+            if (word.Length > longestWord.Length)
+            {
+                longestWord = word;
+            }
+        }
+        Console.WriteLine($"Самое длинное слово: {longestWord}");
+    }
+}*/
+//part1task6
+/*using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Введите значения для первого массива через пробел: \n");
+        Console.Write(">");
+        string input1 = Console.ReadLine();
+        string[] inputArray1 = input1.Split(' ');
+        int[] array1 = Array.ConvertAll(inputArray1, int.Parse);
+
+        Console.Write("Введите значения для второго массива через пробел: \n");
+        Console.Write(">");
+        string input2 = Console.ReadLine();
+        string[] inputArray2 = input2.Split(' ');
+        int[] array2 = Array.ConvertAll(inputArray2, int.Parse);
+        if (array1.Length != array2.Length)
+        {
+            Console.WriteLine("Ошибка: Массивы должны быть одинаковой длины.");
+            return;
+        }
+
+        int[] resultArray = new int[array1.Length];
+
+        for (int i = 0; i < array1.Length; i++)
+        {
+            resultArray[i] = array1[i] * array2[i];
+        }
+        Console.WriteLine("Результат: " + string.Join(" ", resultArray));
+    }
+}*/
+//part1task7
+/*using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Введите пять чисел через пробел: \n");
+        Console.Write(">");
+        string input = Console.ReadLine();
+        string[] inputArray = input.Split(' ');
+        if (inputArray.Length != 5)
+        {
+            Console.WriteLine("Ошибка: Пожалуйста, введите ровно пять чисел.");
+            return;
+        }
+        int[] numbers = Array.ConvertAll(inputArray, int.Parse);
+        int maxNumber = numbers[0];
+        int minNumber = numbers[0];
+        for (int i = 1; i < numbers.Length; i++)
+        {
+            if (numbers[i] > maxNumber)
+            {
+                maxNumber = numbers[i];
+            }
+            if (numbers[i] < minNumber)
+            {
+                minNumber = numbers[i];
+            }
+        }
+        Console.WriteLine($"Максимальное число: {maxNumber}");
+        Console.WriteLine($"Минимальное число: {minNumber}");
+    }
+}*/
+//part1task8
+/*using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Введите количество ступеней: \n");
+        Console.Write(">");
+        if (int.TryParse(Console.ReadLine(), out int levels) && levels > 0)
+        {
+            for (int i = 1; i <= levels; i++)
+            {
+                for (int j = 1; j <= i; j++)
+                {
+                    Console.Write(j);
+                }
+                Console.WriteLine();
+            }
+        }
+        else
+        {
+            Console.WriteLine("Ошибка: Пожалуйста, введите положительное целое число.");
+        }
+    }
+}*/
+//part2task1
+/*using System;
+
+class Program
+{
+    static void Main()
+    {
+        for (int i = 1; i <= 9; i++)
+        {
+            for (int j = 1; j <= 9; j++)
+            {
+                Console.Write($"{i} x {j} = {i * j}\t");
+            }
+            Console.WriteLine();
+        }
+    }
+}*/
+//part3var27
+/*using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Введите двузначное число: \n");
+        Console.Write(">");
+        string input = Console.ReadLine();
+        if (int.TryParse(input, out int number) && number >= 10 && number <= 99)
+        {
+            int num1 = number / 10;
+            int num2 = number % 10;
+            int sum = num1 + num2;
+            if (sum >= 10 && sum <= 99)
+            {
+                Console.WriteLine($"Сумма цифр числа {number} является двузначным числом (число {sum})");
+            }
+            else
+            {
+                Console.WriteLine($"Сумма цифр числа {number} не является двузначным числом (число {sum})");
+            }
+            double result = Math.Pow(num1, num2);
+            if (result > number)
+            {
+                Console.WriteLine($"Число {num1} в степени {num2} равно {result} и больше чем число {number}");
+            }
+            else
+            {
+                Console.WriteLine($"Число {num1} в степени {num2} равно {result} и не больше чем число {number}");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Ошибка: Введите корректное двузначное число.");
+        }
+    }
+}*/
